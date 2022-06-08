@@ -8,7 +8,7 @@ import { CreateTodoButton } from './CreateTodoButton';
 
 const defaultTodos = [
   { text: 'Crear unn Portafolio', completed: false},
-  { text: 'Tomar el curso con react', completed: true},
+  { text: 'Tomar el curso con react', completed: false},
   { text: 'conseguir un trabajo', completed: false}
 ];
 
@@ -23,7 +23,8 @@ function App() {
 
   if (!searchValue.length >= 1) {
     searchedTodos = todos;
-  } else {
+  } 
+  else {
     searchedTodos = todos.filter(todo => {
           const todoText = todo.text.toLowerCase();
           const searchText = searchValue.toLowerCase();
@@ -31,6 +32,14 @@ function App() {
     })
 
   }
+
+  const completeTodos = (text) => {
+    const todoIndex = todos.findIndex(todo => todo.text === text);
+
+    const newTodos = [...todos];
+    newTodos[todoIndex].completed = true;
+    setTodos(newTodos);
+  };
 
   return (
   <React.Fragment>
@@ -52,6 +61,7 @@ function App() {
            key={todo.text} 
            text={todo.text} 
            completed={todo.completed}
+           onComplete={() => completeTodos(todo.text)}
            />
       ))}
      
