@@ -4,7 +4,6 @@ import { TodoSearch} from './TodoSearch';
 import { TodoList } from './TodoList';
 import { TodoItem } from './TodosItem';
 import { CreateTodoButton } from './CreateTodoButton';
-//import './App.css';
 
 const defaultTodos = [
   { text: 'Crear unn Portafolio', completed: false},
@@ -60,7 +59,6 @@ function App() {
     setSearchValue={setSearchValue}
     />
    
-
     <TodoList>
       {searchedTodos.map(todo => (
          <TodoItem 
