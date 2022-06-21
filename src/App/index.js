@@ -1,9 +1,5 @@
 import React from 'react';
-import { TodoCounter } from '../TodoCounter';
-import { TodoSearch} from '../TodoSearch';
-import { TodoList } from '../TodoList';
-import { TodoItem } from '../TodosItem';
-import { CreateTodoButton } from '../CreateTodoButton';
+import { ApppUi } from './AppUI';
 
 const defaultTodos = [
   { text: 'Crear unn Portafolio', completed: false},
@@ -47,33 +43,8 @@ function App() {
   };
 
   return (
-  <React.Fragment>
-
-    <TodoCounter 
-      total={totalTodos}
-      completed={completedTodos}
-    />
+    <AppUI />
  
-    <TodoSearch 
-    searchValue={searchValue}
-    setSearchValue={setSearchValue}
-    />
-   
-    <TodoList>
-      {searchedTodos.map(todo => (
-         <TodoItem 
-           key={todo.text} 
-           text={todo.text} 
-           completed={todo.completed}
-           onComplete={() => completeTodos(todo.text)}
-           onDelete={() => deleteTodos(todo.text)}
-           />
-      ))}
-     
-    </TodoList>
-
-   <CreateTodoButton />
-  </React.Fragment>
   );
 }
 
