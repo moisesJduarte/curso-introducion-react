@@ -5,7 +5,16 @@ import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodosItem';
 import { CreateTodoButton } from '../CreateTodoButton';
 
-function ApppUi() {
+function AppUI({
+    totalTodos,
+    completedTodos,
+    searchValue,
+    setSearchValue,
+    searchedTodos,
+    completeTodos,
+    deleteTodos,
+    }) {
+    
 
         return (
             <React.Fragment>
@@ -39,4 +48,4 @@ function ApppUi() {
 
 }
 
-export { ApppUi };
+export { AppUI };

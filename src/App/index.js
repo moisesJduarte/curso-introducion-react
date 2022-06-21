@@ -1,5 +1,5 @@
 import React from 'react';
-import { ApppUi } from './AppUI';
+import { AppUI } from './AppUI';
 
 const defaultTodos = [
   { text: 'Crear unn Portafolio', completed: false},
@@ -43,7 +43,15 @@ function App() {
   };
 
   return (
-    <AppUI />
+    <AppUI 
+    totalTodos={totalTodos}
+    completedTodos={completedTodos}
+    searchValue={searchValue}
+    setSearchValue={setSearchValue}
+    searchedTodos={searchedTodos}
+    completeTodos={completeTodos}
+    deleteTodos={deleteTodos}
+    />
  
   );
 }
