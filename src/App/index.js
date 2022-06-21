@@ -1,9 +1,9 @@
 import React from 'react';
-import { TodoCounter } from './TodoCounter';
-import { TodoSearch} from './TodoSearch';
-import { TodoList } from './TodoList';
-import { TodoItem } from './TodosItem';
-import { CreateTodoButton } from './CreateTodoButton';
+import { TodoCounter } from '../TodoCounter';
+import { TodoSearch} from '../TodoSearch';
+import { TodoList } from '../TodoList';
+import { TodoItem } from '../TodosItem';
+import { CreateTodoButton } from '../CreateTodoButton';
 
 const defaultTodos = [
   { text: 'Crear unn Portafolio', completed: false},
