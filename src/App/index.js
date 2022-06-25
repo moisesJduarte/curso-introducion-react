@@ -1,13 +1,23 @@
 import React from 'react';
 import { AppUI } from './AppUI';
 
-const defaultTodos = [
-  { text: 'Crear unn Portafolio', completed: false},
-  { text: 'Tomar el curso con react', completed: false},
-  { text: 'conseguir un trabajo', completed: false}
-];
+//const defaultTodos = [
+ // { text: 'Crear unn Portafolio', completed: false},
+  //{ text: 'Tomar el curso con react', completed: false},
+  //{ text: 'conseguir un trabajo', completed: false}
+//];
 
 function App() {
+  const localStorageTodos = localStorage.getItem('TODOS_V1');
+  let parsedTodos;
+
+  if (!localStorageTodos) {
+localStorage.setItem('TODOS_V1', []);
+parsedTodos = [];
+  }else{
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
+
   const [todos, setTodos] = React.useState(defaultTodos);
   const [searchValue, setSearchValue] = React.useState('');
   
