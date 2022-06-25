@@ -18,7 +18,7 @@ parsedTodos = [];
     parsedTodos = JSON.parse(localStorageTodos);
   }
 
-  const [todos, setTodos] = React.useState(defaultTodos);
+  const [todos, setTodos] = React.useState(parsedTodos);
   const [searchValue, setSearchValue] = React.useState('');
   
   const completedTodos = todos.filter(todo => !!todo.completed).length;
