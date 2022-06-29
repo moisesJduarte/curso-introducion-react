@@ -34,7 +34,7 @@ parsedTodos = [];
           const todoText = todo.text.toLowerCase();
           const searchText = searchValue.toLowerCase();
           return todoText.includes(searchText);
-    })
+    });
 
   }
 
@@ -55,7 +55,7 @@ parsedTodos = [];
     const todoIndex = todos.findIndex(todo => todo.text === text);
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
-    seveTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   return (
