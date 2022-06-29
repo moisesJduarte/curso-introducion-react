@@ -7,19 +7,35 @@ import { AppUI } from './AppUI';
   //{ text: 'conseguir un trabajo', completed: false}
 //];
 
-function App() {
-  const localStorageTodos = localStorage.getItem('TODOS_V1');
-  let parsedTodos;
+function useLocalStorage(itemName) {
+  
 
-  if (!localStorageTodos) {
-localStorage.setItem('TODOS_V1', JSON.stringify([]));
-parsedTodos = [];
+  const localStorageItem = localStorage.getItem(itemName);
+  let parsedItem;
+
+  if (!localStorageItem) {
+   localStorage.setItem(itemName, JSON.stringify([]));
+   parsedItem = [];
   }else{
-    parsedTodos = JSON.parse(localStorageTodos);
+    parsedItem = JSON.parse(localStorageItem);
   }
 
-  const [todos, setTodos] = React.useState(parsedTodos);
-  const [searchValue, setSearchValue] = React.useState('');
+  const [todos, setTodos] = React.useState(parsedItem);
+
+
+  const saveTodos = (newTodos) => {
+    const stringifiedTodos = JSON.stringify(newTodos);
+    localStorage.setItem(itemName, stringifiedTodos);
+    setTodos(newTodos);
+  };
+
+  
+}
+
+function App() {
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1');
+
+   const [searchValue, setSearchValue] = React.useState('');
   
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
@@ -38,11 +54,7 @@ parsedTodos = [];
 
   }
 
-  const saveTodos = (newTodos) => {
-    const stringifiedTodos = JSON.stringify(newTodos);
-    localStorage.setItem('TODOS_V1', stringifiedTodos);
-    setTodos(newTodos);
-  };
+ 
 
   const completeTodos = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
