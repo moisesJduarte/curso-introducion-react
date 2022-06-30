@@ -71,6 +71,16 @@ function App() {
     saveTodos(newTodos);
   };
 
+  console.log('Render (antes del useeffect)');
+
+  React.useEffect(() => {
+    console.log('use effect');
+  }, [totalTodos]);
+
+  console.log('Render (luego del useeffect)');
+
+
+
   return (
     <AppUI 
     totalTodos={totalTodos}
