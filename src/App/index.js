@@ -44,7 +44,7 @@ function App() {
   const completedItem = todos.filter(todo => !!todo.completed).length;
   const totalItem = todos.length;
 
-  let searchedItem = initialValue;
+  let searchedItem = [];
 
   if (!searchValue.length >= 1) {
     searchedItem = todos;
