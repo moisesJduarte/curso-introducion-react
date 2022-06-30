@@ -8,8 +8,6 @@ import { AppUI } from './AppUI';
 //];
 
 function useLocalStorage(itemName, initialValue) {
-  
-
   const localStorageItem = localStorage.getItem(itemName);
   let parsedItem;
 
@@ -21,8 +19,6 @@ function useLocalStorage(itemName, initialValue) {
     parsedItem = JSON.parse(localStorageItem);
   }
 
-
-
   const [item, setItem] = React.useState(parsedItem);
 
 
@@ -32,25 +28,29 @@ function useLocalStorage(itemName, initialValue) {
     localStorage.setItem(itemName, stringifiedItem);
     setItem(newItem);
   };
-
+  
+  return [
+    item,
+    saveItem,
+  ];
   
 }
 
 function App() {
 
-  const [todos, saveItem] = useLocalStorage('TODOS_V1', []);
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1',);
   const [searchValue, setSearchValue] = React.useState('');
   
-  const completedItem = todos.filter(todo => !!todo.completed).length;
-  const totalItem = todos.length;
+  const completedTodos = todos.filter(todo => !!todo.completed).length;
+  const totalTodos = todos.length;
 
-  let searchedItem = [];
+  let searchedTodos = [];
 
   if (!searchValue.length >= 1) {
-    searchedItem = todos;
+    searchedTodos = todos;
   } 
   else {
-    searchedItem = todos.filter(todo => {
+    searchedTodos = todos.filter(todo => {
           const todoText = todo.text.toLowerCase();
           const searchText = searchValue.toLowerCase();
           return todoText.includes(searchText);
@@ -60,29 +60,29 @@ function App() {
 
  
 
-  const completeItem = (text) => {
+  const completeTodos = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
-    const newItem = [...todos];
-    newItem[todoIndex].completed = true;
-    saveItem(newItem);
+    const newTodos = [...todos];
+    newTodos[todoIndex].completed = true;
+    saveTodos(newTodos);
   };
 
-  const deleteItem = (text) => {
+  const deleteTodos = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text);
-    const newItem = [...todos];
-    newItem.splice(todoIndex, 1);
-    saveItem(newItem);
+    const newTodos = [...todos];
+    newTodos.splice(todoIndex, 1);
+    saveTodos(newTodos);
   };
 
   return (
     <AppUI 
-    totalItem={totalItem}
-    completedItem={completedItem}
+    totalTodos={totalTodos}
+    completedTodos={completedTodos}
     searchValue={searchValue}
     setSearchValue={setSearchValue}
-    searchedItem={searchedItem}
-    completeItem={completeItem}
-    deleteItem={deleteItem}
+    searchedTodos={searchedTodos}
+    completeTodos={completeTodos}
+    deleteTodos={deleteTodos}
     />
  
   );
