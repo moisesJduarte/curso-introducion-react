@@ -22,4 +22,4 @@ function TodoItem(props){
     </li>
     );
 }
-export{TodoItem};
+export{ TodoItem };
