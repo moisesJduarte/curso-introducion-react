@@ -1,7 +1,8 @@
 import React from "react";
+import './index.css'
 
 function EmptyTodo() {
-    return <p>Crea tu primer TODO!</p>;
+    return <p className="text-style">Create your firts Todo and let's get started with our list.!</p>;
 }
 
 
