@@ -1,7 +1,12 @@
-body{
-  background-image: url("https://res.cloudinary.com/practicaldev/image/fetch/s--BuPz-p40--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/nphrgz8yfnjylrwfr0yl.png");
-  margin:0;
-  padding:0;
-  color:#61dafa;
-  font-family:montserrat,Arial,Helvetica,sans-serif}#root{margin:0 24px;position:relative;
-  min-height:100vh}
+body {
+  background-image: url("https://wallpapercave.com/wp/wp2945015.jpg");
+  margin: 0;
+  padding: 0;
+  color: #61dafa;
+  font-family: montserrat, Arial, Helvetica, sans-serif;
+}
+#root {
+  margin: 0 24px;
+  position: relative;
+  min-height: 100vh;
+}
