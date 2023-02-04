@@ -3,7 +3,7 @@ import { TodoContext } from '../TodoContext';
 import './TodoForm.css';
 
 function TodoForm() {
-  // Creamos un estado para nuestro nuevo TODO
+  // Creamos un estado para nuestro nuev
   const [newTodoValue, setNewTodoValue] = React.useState('');
   // Desestructuramos las funciones que necesitamos para añadir un TODO y cerrar nuestro modal
   const {
